@@ -3,7 +3,7 @@ from openai import OpenAI
 
 client =OpenAI(
     # api_key = "pk-yuLcYPQMmUsyHvhHvuHwgHiPLWYKoaiFnmfycNsbnFGRLvaE",
-    api_key = "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",
+    # api_key = "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",
     base_url= 'https://free.churchless.tech/v1/chat/completions'
 )
 
