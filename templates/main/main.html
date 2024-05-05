@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+
+
+
+{% load static %}
+
+<!--content -->
+{% block content %}
+    <div class="container">
+        <header>
+            <h2>Wifi Troubleshooting Chatbot</h2>
+        </header>
+        <div class="msg-body">
+            <div class="bot-msg">
+                <img class="botAvatar" src="{% static 'img/bot.png' %}"/>
+                <p class="botMsgs">Hello! How can I help you with your wifi troubleshoting</p>
+                <div class="clearfix"></div>
+            </div>
+            
+        </div>
+        
+        <div class="chatbox"id="chatbox">
+            {%csrf_token%}
+            <textarea
+                id="userInput"
+                placeholder="Type a message..."
+                class="userinput"
+            ></textarea>
+    
+            <button type="submit" id="submit" class="send-button">Send</button>
+        </div>
+    </div>
+
+    {{script}}
+{% endblock content %}

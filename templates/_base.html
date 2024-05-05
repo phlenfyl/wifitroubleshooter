@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home {% block title %} {% endblock title %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/wifi.css' %}">
+
+    <link rel="shortcut icon" class="w-full h-full rounded-full" href="{% static 'img/bot.png' %}" type="image/x-icon">
+</head>
+
+<body class="">
+    {% block content %}
+    
+    {% endblock content %}
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="{% static 'marked/marked.min.js' %}"></script>
+    <script src="{% static 'dompurify/dist/purify.min.js' %}"></script>
+    <script src="{% static 'rivescript/dist/rivescript.min.js' %}"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("{% url 'sw.js' %}") //note that I am using the url template here
+            .then(function(reg){
+                console.log("Yes, it did.");
+            }).catch(function(err) {
+                console.log("err.message:", err.message)
+            });
+        }
+
+        var bot = new RiveScript({ utf8: true });
+
+        bot.unicodePunctuation = new RegExp(/[.,!?;:]/g);
+
+        bot.loadFile(
+            [
+                "{% static 'brain/begin.rive' %}",
+                "{% static 'brain/advanced.rive' %}",
+                "{% static 'brain/basic.rive' %}",
+                "{% static 'brain/greet.rive' %}",
+                "{% static 'brain/star.rive' %}",
+            ]
+        ).then(
+            () => {
+                bot.sortReplies();
+            }
+        ).catch(loading_error);
+
+    </script>
+    <script>
+        let scripts = null
+        let script =null
+        async function pingServer() {
+            try {
+                const response = await fetch("https://www.google.com/favicon.ico", { mode: 'no-cors' }); // Replace with a reliable server
+                if ( response.ok) {
+                    const scripts = document.createElement('script');
+                    scripts.src = "{% static 'js/backend.js' %}";
+                    document.body.appendChild(scripts);
+                    if(script){
+                        document.body.removeChild(scripts)
+                    }
+                }else{
+                    if(scripts){
+                        document.body.removeChild(scripts)
+                    }
+                    const script = document.createElement('script');
+                    script.src = "{% static 'js/serviceworker.js' %}";
+                    document.body.appendChild(script);
+                }
+            } catch (error) {
+                if(scripts){
+                    document.body.removeChild(scripts)
+                }
+                const script = document.createElement('script');
+                script.src = "{% static 'js/serviceworker.js' %}";
+                document.body.appendChild(script);
+            }
+        }
+
+        pingServer()
+
+        setInterval(pingServer, 5000);    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+! version = 2.0 
+! local concat = newline
+
+
++ my wifi is not working can you help
+- I understand you're having trouble connecting to wifi. Let's try to troubleshoot the issue.
+
++ i can not connect to the internet what is wrong
+- It seems you're not connected to the internet. Is your wifi turned on?
+
++ my wifi connection keeps fluctuating it stops then starts working again after sometime
+- This might be network issue from your wifi router, kindly change the position of the router
+^ to where it network is the greatest
+
++ my wifi connection speed tends to be slow any time i am connected to it
+- wifi being slow can most times be due to backgroud connection usages or the system trying to update itself.
+^ You can disable most of these by going to the systems' settings
+
++ i use internet connection connected via bluetooth from my smartphone to my latop but it seems the connection is very slow how can i resolve this 
+- You should check the internet connection on your smartphone, or check the background apps in both your
+^ smartphone and your laptop using the internet, as this can slow the internet connection also. Hope this helps
+
++ my devices can not see the wifi network why
+- There could be a few reasons why your devices can't see the wifi network. Let me know if you've recently changed your wifi name or password.
+- Make sure your wifi network is visible and the correct password is entered. Restarting the router and checking device settings can also help.
+
++ my wifi keeps disconnecting and reconnecting how can i fix it
+- Reduce wifi interference: Electronic devices like cordless phones, microwave ovens, or Bluetooth speakers can interfere with wifi signals. 
+^ Try moving these devices away from your router or modem. Also try checking the signal strength of your wifi
+
++ how can i check my wifi signal strength
+- Most devices display wifi signal strength with bars or icons. Look for the wifi symbol on your device (usually in the taskbar or status bar). 
+^ The more bars or stronger the icon, the better the signal strength. You can also check your router's web interface for detailed signal strength information.
