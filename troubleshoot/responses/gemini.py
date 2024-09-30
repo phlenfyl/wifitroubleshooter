@@ -1,4 +1,4 @@
-gemini_key = "AIzaSyAsZZaAy_oQBwf2-w7SIhSerlKE8ZFTZN8" 
+gemini_key = "" 
 import google.generativeai as genai
 
 
